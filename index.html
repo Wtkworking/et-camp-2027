@@ -199,9 +199,9 @@
             </div>
             <div>
               <label class="block text-xs font-medium mb-1 text-slate-300">แผนการเรียน <span class="text-red-400">*</span></label>
-              <select name="study_plan" required class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-red-500 text-slate-100">
+              <select name="study_plan" required onchange="toggleStudyPlanOther(this.value)" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-red-500 text-slate-100">
                 <option value="วิทย์ - คณิต">วิทย์ - คณิต</option>
-                <option value="วิทย์พลังสิบ">วิทย์พลังสิบ</option>
+                <option value="วิทย์ - คอม">วิทย์ - คอม</option>
                 <option value="ศิลป์ - คำนวณ">ศิลป์ - คำนวณ</option>
                 <option value="ศิลป์ - ภาษาอังกฤษ">ศิลป์ - ภาษาอังกฤษ</option>
                 <option value="ศิลป์ - ภาษาจีน">ศิลป์ - ภาษาจีน</option>
@@ -213,6 +213,12 @@
               <label class="block text-xs font-medium mb-1 text-slate-300">เกรดเฉลี่ย <span class="text-red-400">*</span></label>
               <input type="number" step="0.01" min="0" max="4" name="gpax" required placeholder="0.00" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-red-500 text-slate-100">
             </div>
+          </div>
+
+          <!-- ช่องกรอกระบุแผนการเรียนเพิ่มเติมเมื่อเลือก "อื่นๆ" -->
+          <div id="studyPlanOtherContainer" class="hidden pt-1">
+            <label class="block text-xs font-medium mb-1 text-red-300">โปรดระบุแผนการเรียนของคุณ <span class="text-red-400">*</span></label>
+            <input type="text" id="study_plan_other" name="study_plan_other" placeholder="เช่น ช่างยนต์, คอมพิวเตอร์ธุรกิจ, กิฟเต็ดคณิต..." class="w-full bg-slate-900 border border-slate-600 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl px-4 py-2.5 text-sm outline-none transition text-slate-100">
           </div>
         </div>
       </div>
@@ -254,6 +260,7 @@
               <option value="ครูที่โรงเรียน">ครูที่โรงเรียน</option>
               <option value="ทีมแนะแนวจากสถาบันการจัดการปัญญาภิวัฒน์">ทีมแนะแนวจากสถาบันการจัดการปัญญาภิวัฒน์</option>
               <option value="TikTok">TikTok</option>
+              <option value="เพจ Facebook คณะวิศวกรรมศาสตร์และเทคโนโลยี">TikTok</option>
               <option value="อื่นๆ">อื่นๆ</option>
             </select>
           </div>
@@ -481,6 +488,20 @@
       const container = document.getElementById("prevProjectDetailContainer");
       const input = document.getElementById("prev_project");
       if (value === "เคย") {
+        container.classList.remove("hidden");
+        input.required = true;
+      } else {
+        container.classList.add("hidden");
+        input.required = false;
+        input.value = "";
+      }
+    }
+
+    // ฟังก์ชันเปิด/ปิด ช่องระบุแผนการเรียนเพิ่มเติม
+    function toggleStudyPlanOther(value) {
+      const container = document.getElementById("studyPlanOtherContainer");
+      const input = document.getElementById("study_plan_other");
+      if (value === "อื่นๆ") {
         container.classList.remove("hidden");
         input.required = true;
       } else {
