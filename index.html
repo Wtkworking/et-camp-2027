@@ -588,6 +588,16 @@
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
+      // ถ้าเลือกแผนการเรียน "อื่นๆ" ให้นำข้อความที่ระบุเพิ่มเติมมาแทนที่คำว่า "อื่นๆ"
+      if (data.study_plan === "อื่นๆ" && data.study_plan_other) {
+        data.study_plan = data.study_plan_other.trim();
+      }
+
+      // (ทางเลือก) ถ้าเลือกช่องทางรับข่าวสาร "อื่นๆ" ให้นำข้อความที่ระบุมาแทนที่ด้วยเช่นกัน
+      if (data.source === "อื่นๆ" && data.source_other) {
+        data.source = data.source_other.trim();
+      }
+
       try {
         await fetch(SCRIPT_URL, {
           method: "POST",
