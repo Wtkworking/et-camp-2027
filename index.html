@@ -260,7 +260,7 @@
               <option value="ครูที่โรงเรียน">ครูที่โรงเรียน</option>
               <option value="ทีมแนะแนวจากสถาบันการจัดการปัญญาภิวัฒน์">ทีมแนะแนวจากสถาบันการจัดการปัญญาภิวัฒน์</option>
               <option value="TikTok">TikTok</option>
-              <option value="เพจ Facebook คณะวิศวกรรมศาสตร์และเทคโนโลยี">TikTok</option>
+              <option value="เพจ Facebook คณะวิศวกรรมศาสตร์และเทคโนโลยี">เพจ Facebook คณะวิศวกรรมศาสตร์และเทคโนโลยี</option>
               <option value="อื่นๆ">อื่นๆ</option>
             </select>
           </div>
@@ -363,10 +363,50 @@
     </form>
 
     <!-- Success Screen -->
-    <div id="successBox" class="hidden p-10 text-center space-y-4">
+    <div id="successBox" class="hidden p-6 md:p-10 space-y-6 text-center">
       <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-3xl">✓</div>
-      <h2 class="text-2xl font-bold text-white">ลงทะเบียนสำเร็จ!</h2>
-      <p class="text-slate-400 text-sm">ข้อมูลการสมัครของท่านถูกบันทึกเรียบร้อยแล้ว ทีมงานจะติดต่อกลับผ่านทาง Email หรือเบอร์โทรศัพท์ที่ระบุไว้</p>
+      
+      <div class="space-y-1">
+        <h2 class="text-2xl font-bold text-white">ลงทะเบียนสำเร็จ!</h2>
+        <p class="text-slate-400 text-sm">ข้อมูลการสมัครของท่านถูกบันทึกเรียบร้อยแล้ว</p>
+      </div>
+
+      <!-- Important Notice Box -->
+      <div class="text-left bg-slate-900/80 border border-slate-700 p-5 rounded-2xl space-y-3 text-sm">
+        <p class="font-medium text-amber-400 flex items-center gap-2">
+          <span>📞</span> เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยันการเข้าร่วมตามเบอร์โทรที่ระบุไว้
+        </p>
+        <div class="text-xs md:text-sm text-slate-300 space-y-2 border-t border-slate-700/80 pt-3">
+          <p class="flex items-start gap-2">
+            <span class="text-red-400 font-semibold shrink-0">1.</span>
+            <span>การติดต่อกลับในการประกาศผล อีเมลระบุเป็น G-mail หรือ Hotmail ที่ติดต่อได้เท่านั้น !</span>
+          </p>
+          <p class="flex items-start gap-2">
+            <span class="text-red-400 font-semibold shrink-0">2.</span>
+            <span>การคัดเลือกเป็นดุลยพินิจของผู้จัดถือเป็นสิทธิ์เป็นที่สิ้นสุด</span>
+          </p>
+          <p class="flex items-start gap-2">
+            <span class="text-red-400 font-semibold shrink-0">3.</span>
+            <span>หากได้รับการคัดเลือกจะมี E-mail แจ้งภายในวันที่ <strong class="text-red-400 font-medium">4 พฤศจิกายน 2569</strong></span>
+          </p>
+        </div>
+      </div>
+
+      <!-- LINE Group Invitation -->
+      <div class="bg-emerald-950/20 border border-emerald-500/30 p-5 rounded-2xl space-y-3 text-center">
+        <p class="text-xs md:text-sm text-slate-200">
+          ตรวจสอบข้อมูลให้ถูกต้องก่อนบันทึกข้อมูลการสมัคร และรบกวนเข้าร่วมกลุ่มไลน์
+        </p>
+        <div>
+          <a href="https://line.me/ti/g/Ccfnvq7aJ7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#06C755] hover:bg-[#05b34c] text-white px-6 py-2.5 rounded-xl font-medium text-sm shadow-lg shadow-[#06C755]/20 transition transform hover:-translate-y-0.5">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.019 9.572.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.645 1.281-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.589-3.844 2.589-5.952z"/></svg>
+            คลิกเข้าร่วมกลุ่ม LINE ที่นี่
+          </a>
+        </div>
+        <p class="text-[11px] text-slate-400 break-all">
+          หรือลิงก์: <a href="https://line.me/ti/g/Ccfnvq7aJ7" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">https://line.me/ti/g/Ccfnvq7aJ7</a>
+        </p>
+      </div>
     </div>
 
   </div>
